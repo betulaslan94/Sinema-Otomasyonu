@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bilet">
+    <Key>
+      <PropertyRef Name="bilet_id" />
+    </Key>
+    <Property Name="bilet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="film_id" Type="Int32" />
+    <Property Name="seans_id" Type="Int32" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="koltuk_no" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ucret" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="film" Relationship="Self.FK_bilet_film" FromRole="bilet" ToRole="film" />
+    <NavigationProperty Name="seans" Relationship="Self.FK_bilet_seans" FromRole="bilet" ToRole="seans" />
+  </EntityType>
+  <EntityType Name="film">
+    <Key>
+      <PropertyRef Name="film_id" />
+    </Key>
+    <Property Name="film_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="resim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="salon_id" Type="Int32" />
+    <NavigationProperty Name="bilet" Relationship="Self.FK_bilet_film" FromRole="film" ToRole="bilet" />
+    <NavigationProperty Name="salon" Relationship="Self.FK_film_salon" FromRole="film" ToRole="salon" />
+  </EntityType>
+  <EntityType Name="salon">
+    <Key>
+      <PropertyRef Name="salon_id" />
+    </Key>
+    <Property Name="salon_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kapasite" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="film" Relationship="Self.FK_film_salon" FromRole="salon" ToRole="film" />
+  </EntityType>
+  <EntityType Name="seans">
+    <Key>
+      <PropertyRef Name="seans_id" />
+    </Key>
+    <Property Name="seans_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="saat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="bilet" Relationship="Self.FK_bilet_seans" FromRole="seans" ToRole="bilet" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_bilet_film">
+    <End Role="film" Type="Self.film" Multiplicity="0..1" />
+    <End Role="bilet" Type="Self.bilet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="film">
+        <PropertyRef Name="film_id" />
+      </Principal>
+      <Dependent Role="bilet">
+        <PropertyRef Name="film_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bilet_seans">
+    <End Role="seans" Type="Self.seans" Multiplicity="0..1" />
+    <End Role="bilet" Type="Self.bilet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seans">
+        <PropertyRef Name="seans_id" />
+      </Principal>
+      <Dependent Role="bilet">
+        <PropertyRef Name="seans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_film_salon">
+    <End Role="salon" Type="Self.salon" Multiplicity="0..1" />
+    <End Role="film" Type="Self.film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salon">
+        <PropertyRef Name="salon_id" />
+      </Principal>
+      <Dependent Role="film">
+        <PropertyRef Name="salon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SinemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bilet" EntityType="Self.bilet" />
+    <EntitySet Name="film" EntityType="Self.film" />
+    <EntitySet Name="salon" EntityType="Self.salon" />
+    <EntitySet Name="seans" EntityType="Self.seans" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_bilet_film" Association="Self.FK_bilet_film">
+      <End Role="film" EntitySet="film" />
+      <End Role="bilet" EntitySet="bilet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bilet_seans" Association="Self.FK_bilet_seans">
+      <End Role="seans" EntitySet="seans" />
+      <End Role="bilet" EntitySet="bilet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_film_salon" Association="Self.FK_film_salon">
+      <End Role="salon" EntitySet="salon" />
+      <End Role="film" EntitySet="film" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bilet">
+    <Key>
+      <PropertyRef Name="bilet_id" />
+    </Key>
+    <Property Name="bilet_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="film_id" Type="int" />
+    <Property Name="seans_id" Type="int" />
+    <Property Name="tarih" Type="datetime" Nullable="false" />
+    <Property Name="koltuk_no" Type="nvarchar" MaxLength="10" />
+    <Property Name="ucret" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="film">
+    <Key>
+      <PropertyRef Name="film_id" />
+    </Key>
+    <Property Name="film_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="fTur" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sure" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="resim" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="salon_id" Type="int" />
+  </EntityType>
+  <EntityType Name="salon">
+    <Key>
+      <PropertyRef Name="salon_id" />
+    </Key>
+    <Property Name="salon_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="kapasite" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="seans">
+    <Key>
+      <PropertyRef Name="seans_id" />
+    </Key>
+    <Property Name="seans_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="saat" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_bilet_film">
+    <End Role="film" Type="Self.film" Multiplicity="0..1" />
+    <End Role="bilet" Type="Self.bilet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="film">
+        <PropertyRef Name="film_id" />
+      </Principal>
+      <Dependent Role="bilet">
+        <PropertyRef Name="film_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bilet_seans">
+    <End Role="seans" Type="Self.seans" Multiplicity="0..1" />
+    <End Role="bilet" Type="Self.bilet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seans">
+        <PropertyRef Name="seans_id" />
+      </Principal>
+      <Dependent Role="bilet">
+        <PropertyRef Name="seans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_film_salon">
+    <End Role="salon" Type="Self.salon" Multiplicity="0..1" />
+    <End Role="film" Type="Self.film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salon">
+        <PropertyRef Name="salon_id" />
+      </Principal>
+      <Dependent Role="film">
+        <PropertyRef Name="salon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SinemaModelStoreContainer">
+    <EntitySet Name="bilet" EntityType="Self.bilet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="film" EntityType="Self.film" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salon" EntityType="Self.salon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="seans" EntityType="Self.seans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_bilet_film" Association="Self.FK_bilet_film">
+      <End Role="film" EntitySet="film" />
+      <End Role="bilet" EntitySet="bilet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bilet_seans" Association="Self.FK_bilet_seans">
+      <End Role="seans" EntitySet="seans" />
+      <End Role="bilet" EntitySet="bilet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_film_salon" Association="Self.FK_film_salon">
+      <End Role="salon" EntitySet="salon" />
+      <End Role="film" EntitySet="film" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

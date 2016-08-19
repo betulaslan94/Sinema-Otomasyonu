@@ -1,0 +1,16 @@
+c:\users\betul\onedrive\belgeler\visual studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\sinema_uygulaması.exe.config
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\sinema_uygulaması.exe
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\sinema_uygulaması.pdb
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\EntityFramework.dll
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\EntityFramework.xml
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.csprojResolveAssemblyReference.cache
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.AnaSayfa.resources
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.filmekle.resources
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.Properties.Resources.resources
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.salon1.resources
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.salon2.resources
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.csproj.GenerateResource.Cache
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.exe
+C:\Users\betul\OneDrive\Belgeler\Visual Studio 2015\Projects\sinema_uygulaması\sinema_uygulaması\obj\Debug\sinema_uygulaması.pdb
