@@ -19,8 +19,6 @@ namespace sinema_uygulaması
         public salon1()
         {
             InitializeComponent();
-            label12.Text = DateTime.Now.ToLongDateString();
-            label13.Text = DateTime.Now.ToLongTimeString();
         }
         public void koltuk_durum(string x, string y)
         {
@@ -565,6 +563,12 @@ namespace sinema_uygulaması
             db.bilet.Remove(silinecek_kayit);
             db.SaveChanges();
             MessageBox.Show("Kayıt silindi.");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label12.Text = DateTime.Now.ToLongDateString();
+            label13.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.a10 = new System.Windows.Forms.Button();
             this.a9 = new System.Windows.Forms.Button();
             this.a8 = new System.Windows.Forms.Button();
@@ -111,6 +112,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -1003,6 +1005,11 @@
             this.checkBox1.Text = "Tam 15 TL";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // salon2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1173,5 +1180,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Timer timer1;
     }
 }
